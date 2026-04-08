@@ -1,0 +1,51 @@
+seed: 42
+exp_name: uk-Qwen2.5-1.5B
+batch_size: 4
+eval_batch_size: 32
+debug: false
+fsdp_port: null
+datasets:
+- /data/gpfs/projects/punim1996/Data/AACL2025/dataset/uk_debias_data_gdpo_train_single_response.csv
+wandb:
+  enabled: true
+  entity: null
+  project: direct-preference-optimization
+local_dirs:
+- /scr-ssd
+- /scr
+- .cache
+sample_during_eval: false
+n_eval_model_samples: 16
+do_first_eval: true
+local_run_dir: .
+lr: 5.0e-07
+gradient_accumulation_steps: 1
+max_grad_norm: 10.0
+max_length: 512
+max_prompt_length: 256
+n_epochs: 10
+n_examples: null
+n_eval_examples: 256
+trainer: BasicTrainer
+optimizer: RMSprop
+warmup_steps: 150
+activation_checkpointing: false
+eval_every: 1000000
+minimum_log_interval_secs: 10
+output_dir: /data/projects/punim1996/Data/AACL2025/Ours/outputs/uk-Qwen2.5-1.5B
+patience: 4
+eval_metric: loss/eval
+model:
+  name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+  tokenizer_name_or_path: null
+  archive: null
+  block_name: Qwen2DecoderLayer
+  policy_dtype: bfloat16
+  fsdp_policy_mp: bfloat16
+  reference_dtype: bfloat16
+loss:
+  name: kto
+  beta: 0.1
+  desirable_weight: 1.0
+  undesirable_weight: 1.0
+  reference_free: false

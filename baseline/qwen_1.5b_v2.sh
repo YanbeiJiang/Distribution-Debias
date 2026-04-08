@@ -1,0 +1,167 @@
+#!/bin/bash
+module load Anaconda3/2024.02-1
+eval "$(conda shell.bash hook)"
+conda activate vllm
+
+
+# occ_gender_real UK
+# -------------------------------
+result_path_occ_gender_real_uk="./result_occ_gender_real/uk_test_IFT-qwen-1.5b_v2.jsonl"
+
+if [ -f "$result_path_occ_gender_real_uk" ]; then
+    rm "$result_path_occ_gender_real_uk"
+    echo "File has been deleted: $result_path_occ_gender_real_uk"
+else
+    echo "File not existing: $result_path_occ_gender_real_uk"
+fi
+
+dataset_occ_gender_real_uk="../dataset_occ_gender_real/uk_debias_data_IFT_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_gender_real_uk \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_gender_real_uk
+
+# occ_gender_even UK
+# -------------------------------
+result_path_occ_gender_even_uk="./result_occ_gender_even/uk_test_IFT-qwen-1.5b_v2.jsonl"
+
+if [ -f "$result_path_occ_gender_even_uk" ]; then
+    rm "$result_path_occ_gender_even_uk"
+    echo "File has been deleted: $result_path_occ_gender_even_uk"
+else
+    echo "File not existing: $result_path_occ_gender_even_uk"
+fi
+
+dataset_occ_gender_even_uk="../dataset_occ_gender_even/uk_debias_data_IFT_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_gender_even_uk \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_gender_even_uk
+
+# occ_gender_real US
+# -------------------------------
+result_path_occ_gender_real_us=./result_occ_gender_real/us_test_IFT-qwen-1.5b_v2.jsonl
+
+if [ -f "$result_path_occ_gender_real_us" ]; then
+    rm "$result_path_occ_gender_real_us"
+    echo "File has been deleted: $result_path_occ_gender_real_us"
+else
+    echo "File not existing: $result_path_occ_gender_real_us"
+fi
+
+dataset_occ_gender_real_us="../dataset_occ_gender_real/us_debias_data_IFT_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_gender_real_us \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_gender_real_us
+
+# occ_gender_even US
+# -------------------------------
+result_path_occ_gender_even_us="./result_occ_gender_even/us_test_IFT-qwen-1.5b_v2.jsonl"
+
+if [ -f "$result_path_occ_gender_even_us" ]; then
+    rm "$result_path_occ_gender_even_us"
+    echo "File has been deleted: $result_path_occ_gender_even_us"
+else
+    echo "File not existing: $result_path_occ_gender_even_us"
+fi
+
+dataset_occ_gender_even_us="../dataset_occ_gender_even/us_debias_data_IFT_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_gender_even_us \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_gender_even_us
+
+# occ_race_even
+# -------------------------------
+result_path_occ_race_even="./result_occ_race_even/us_test_IFT-qwen-1.5b_v2.jsonl"
+
+if [ -f "$result_path_occ_race_even" ]; then
+    rm "$result_path_occ_race_even"
+    echo "File has been deleted: $result_path_occ_race_even"
+else
+    echo "File not existing: $result_path_occ_race_even"
+fi
+
+dataset_occ_race_even="../dataset_occ_race_even/us_race_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_race_even \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_race_even
+
+# occ_race_sentiment
+# -------------------------------
+result_path_occ_sentiment_even="./result_occ_sentiment_even/us_test_IFT-qwen-1.5b_v2.jsonl"
+
+if [ -f "$result_path_occ_sentiment_even" ]; then
+    rm "$result_path_occ_sentiment_even"
+    echo "File has been deleted: $result_path_occ_sentiment_even"
+else
+    echo "File not existing: $result_path_occ_sentiment_even"
+fi
+
+dataset_occ_sentiment_even="../dataset_occ_sentiment_even/us_sentiment_test_v2.json"
+
+CUDA_VISIBLE_DEVICES=0 \
+swift infer \
+    --model Qwen/Qwen2.5-1.5B-Instruct \
+    --infer_backend vllm \
+    --val_dataset $dataset_occ_sentiment_even \
+    --temperature 1.0 \
+    --max_new_tokens 2048 \
+    --use_hf true \
+    --max_batch_size 16 \
+    --result_path $result_path_occ_sentiment_even
+
+echo "Results for occ gender real uk"
+python postprocess_v2_50_50.py --run_name $result_path_occ_gender_real_uk --mode real --location uk --attribute gender --version v2
+
+echo "Results for occ gender even uk"
+python postprocess_v2_50_50.py --run_name $result_path_occ_gender_even_uk --mode even --location uk --attribute gender --version v2
+
+echo "Results for occ gender real us"
+python postprocess_v2_50_50.py --run_name $result_path_occ_gender_real_us --mode real --location us --attribute gender --version v2
+
+echo "Results for occ gender even us"
+python postprocess_v2_50_50.py --run_name $result_path_occ_gender_even_us --mode even --location us --attribute gender --version v2
+
+echo "Results for occ race even"
+python postprocess_v2_50_50.py --run_name $result_path_occ_race_even --mode even --location us --attribute race --version v2
+
+echo "Results for occ sentiment even"
+python postprocess_v2_50_50.py --run_name $result_path_occ_sentiment_even --mode even --location us --attribute sentiment --version v2

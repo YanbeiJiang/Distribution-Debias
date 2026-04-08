@@ -1,0 +1,166 @@
+#!/bin/bash
+module load Anaconda3/2024.02-1
+eval "$(conda shell.bash hook)"
+conda activate vllm
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_gender_real_uk/Meta-Llama-3.1-8B-Instruct/v1-20251128-163255/checkpoint-1250" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_gender_real/uk_debias_data_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_gender_real_uk/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_gender_even_uk/Meta-Llama-3.1-8B-Instruct/v1-20251128-163850/checkpoint-1250" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_gender_even/uk_debias_data_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_gender_even_uk/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_gender_real_us/Meta-Llama-3.1-8B-Instruct/v1-20251128-164439/checkpoint-700" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_gender_real/us_debias_data_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_gender_real_us/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_gender_even_us/Meta-Llama-3.1-8B-Instruct/v1-20251128-164806/checkpoint-700" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_gender_even/us_debias_data_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_gender_even_us/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_race_us/Meta-Llama-3.1-8B-Instruct/v1-20251128-165132/checkpoint-700" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_race_even/us_race_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_race_us/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+swift rlhf \
+    --rlhf_type dpo \
+    --model meta-llama/Meta-Llama-3.1-8B-Instruct \
+    --train_type lora \
+    --resume_from_checkpoint "/data/projects/punim1996/Data/AACL2025/IFT/output_occ_sentiment_us/Meta-Llama-3.1-8B-Instruct/v1-20251128-165506/checkpoint-630" \
+    --resume_only_model true \
+    --dataset '/data/projects/punim1996/Data/AACL2025/dataset_occ_sentiment_even/us_sentiment_dpo_train.json' \
+    --split_dataset_ratio 0 \
+    --torch_dtype bfloat16 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 1 \
+    --per_device_eval_batch_size 1 \
+    --learning_rate 1e-6 \
+    --lora_rank 8 \
+    --lora_alpha 32 \
+    --target_modules all-linear \
+    --gradient_accumulation_steps 1 \
+    --save_strategy epoch \
+    --eval_strategy epoch \
+    --save_total_limit 1 \
+    --logging_steps 5 \
+    --max_length 2048 \
+    --output_dir output_occ_sentiment_us/Meta-Llama-3.1-8B-Instruct \
+    --warmup_ratio 0.05 \
+    --use_hf true \

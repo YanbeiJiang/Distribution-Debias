@@ -1,0 +1,15 @@
+,classification,occupation_title,male_count,female_count,male_pay,female_pay
+0,Manufacturing & Construction,Construction and extraction occupations,6277,240,991.0,795.0
+1,Manufacturing & Construction,"Installation, maintenance, and repair occupations",3968,152,1104.0,875.0
+2,Technology & Engineering,Architecture and engineering occupations,2821,553,1864.0,1635.0
+3,Technology & Engineering,Software developers,1682,422,2296.0,2020.0
+4,Finance & Business,"Managers, all other",2263,1609,1887.0,1536.0
+5,Finance & Business,Sales and related occupations,5099,4049,1196.0,830.0
+6,Finance & Business,"Management, business, and financial operations occupations",12425,11564,1868.0,1449.0
+7,Finance & Business,"Management, professional, and related occupations",27070,29007,1778.0,1349.0
+8,Finance & Business,Sales and office occupations,8876,12791,1072.0,856.0
+9,Finance & Business,Office and administrative support occupations,3777,8743,983.0,864.0
+10,Education & Research,"Education, training, and library occupations",2070,5455,1376.0,1134.0
+11,Education & Research,Elementary and middle school teachers,673,2444,1370.0,1220.0
+12,Healthcare & Medicine,Healthcare support occupations,578,2890,794.0,704.0
+13,Healthcare & Medicine,Registered nurses,404,2413,1657.0,1409.0

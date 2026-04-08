@@ -1,0 +1,7 @@
+name_or_path: /data/projects/punim1996/Data/AACL2025/GDPO-main/SFT/output/v2-20250911-000427/checkpoint-3125
+tokenizer_name_or_path: null
+archive: null
+block_name: Qwen2DecoderLayer
+policy_dtype: bfloat16
+fsdp_policy_mp: null
+reference_dtype: bfloat16
